@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #000000;
+  --back-color: #fff;
+  --info-color: #a4a4a4;
+  --elback-color: #ededed;
+  --action-color: #3a3b3d;
+  --contrast-color: #d70404;
+  --innactive-color: #d6d6d6;
+}
+
+body {
+  font-family: "Montserrat";
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.hidden {
+  display: none;
+}

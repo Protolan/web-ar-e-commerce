@@ -1,0 +1,59 @@
+.input-field {
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+  width: 100%;
+  height: 35px;
+  border-radius: 2px;
+  border: 1px solid var(--info-color);
+  color: var(--info-color);
+  box-sizing: border-box;
+}
+
+.input-field[readonly] {
+  background-color: var(--elback-color);
+}
+
+.input-field:focus {
+  border: 1px solid var(--primary-color);
+}
+
+.input-field.invalid {
+  border: 1px solid var(--contrast-color);
+}
+
+.input-field:not(:placeholder-shown) {
+  color: var(--primary-color);
+}
+
+.input-clear {
+  position: absolute;
+  top: 50%;
+  transform: translateY(45%);
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-image: url("../assets/ExitButton.svg");
+  background-repeat: no-repeat;
+}
+
+.input-clear.error {
+  background-image: url("../assets/ClearError.svg");
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.input-title {
+  font-size: 15px;
+  font-weight: 400;
+  text-align: left;
+}

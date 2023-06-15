@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Preact Carousel</title>
+    <script src="https://unpkg.com/preact@latest/dist/preact.module.js"></script>
+    <style>
+      .carousel {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+      .carousel-item {
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+      .carousel-item.active {
+        opacity: 1;
+      }
+      .carousel-item.animate {
+        animation: fade-in 1s;
+      }
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      const { h, Component, render } = preact;
+
+      class Carousel extends Component {
+        constructor(props) {
+          super(props);
+
+          this.state = {
+            currentIndex: 0,
+            animate: false,
+          };
+
+          this.startX = 0;
+          this.threshold = 100;
+
+          this.handleTouchStart = this.handleTouchStart.bind(this);
+          this.handleTouchEnd = this.handleTouchEnd.bind(this);
+        }
+
+        handleTouchStart(event) {
+          this.startX = event.touches[0].clientX;
+        }
+
+        handleTouchEnd(event) {
+          const endX = event.changedTouches[0].clientX;
+          const diffX = this.startX - endX;
+
+          if (Math.abs(diffX) > this.threshold) {
+            this.setState({ animate: true });
+            if (diffX > 0) {
+              this.setState((prevState) => ({
+                currentIndex:
+                  (prevState.currentIndex + 1) % this.props.children.length,
+              }));
+            } else {
+              this.setState((prevState) => ({
+                currentIndex:
+                  (prevState.currentIndex - 1 + this.props.children.length) %
+                  this.props.children.length,
+              }));
+            }
+          }
+        }
+
+        render() {
+          const { children } = this.props;
+          const { currentIndex, animate } = this.state;
+
+          return (
+            <div
+              className="carousel"
+              onTouchStart={this.handleTouchStart}
+              onTouchEnd={this.handleTouchEnd}
+            >
+              {children.map((child, index) => (
+                <div
+                  className={`carousel-item ${
+                    index === currentIndex ? "active" : ""
+                  } ${animate ? "animate" : ""}`}
+                >
+                  {child}
+                </div>
+              ))}
+            </div>
+          );
+        }
+      }
+
+      const App = () => (
+        <Carousel>
+          <div>Slide 2</div>
+          <div>Slide 3</div>
+        </Carousel>
+      );
+
+      render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

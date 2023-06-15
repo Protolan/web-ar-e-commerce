@@ -1,0 +1,20 @@
+.auth {
+  top: 0;
+  left: -100%;
+  transition: left 0.5s ease;
+}
+
+.auth-container {
+  margin: 25px auto 25px;
+  font-family: "Montserrat";
+  width: calc(100% - 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 30px;
+}
+
+.auth.open {
+  left: 0;
+}
