@@ -7,7 +7,7 @@ import { Footer } from "./components/footer.js";
 import { LocationScreen } from "./components/locationScreen.js";
 import { AuthScreen } from "./components/authScreen.js";
 import { Carousel } from "./components/carousel.js";
-import { RangeSlider } from "./components/RangeSlider.js";
+import { RangeSlider } from "./components/rangeSlider.js";
 
 async function initializeDatabase(filePaths) {
   try {

@@ -121,6 +121,7 @@ export class RangeSlider extends Component {
             <div>от</div>
             <input
               type="number"
+              class="rangeInput"
               id="fromInput"
               value=${minValue}
               min=${minValue}
@@ -132,6 +133,7 @@ export class RangeSlider extends Component {
             <input
               type="number"
               id="toInput"
+              class="rangeInput"
               value=${maxValue}
               min=${minValue}
               max=${maxValue}

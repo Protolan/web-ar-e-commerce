@@ -52,7 +52,7 @@ input[type="range"] {
   pointer-events: none;
 }
 
-input[type="number"] {
+input.rangeInput[type="number"] {
   text-align: center;
   color: var(--primary-color);
   width: 85px;
