@@ -1,0 +1,24 @@
+{
+  "name": "Диван Линс Синий",
+  "titleName": "Диван Линс",
+  "cost": 29980,
+  "sale": 38980,
+  "images": ["./assets/images/lins.png"],
+  "color": {
+    "group": "Синий",
+    "hex": "D4C7B7"
+  },
+  "otherColors": [],
+  "categories": ["Диваны"],
+  "feature": [
+    { "Title": "Длина", "Description": "164см" },
+    { "Title": "Ширина", "Description": "105cм" },
+    { "Title": "Высота", "Description": "85см" },
+    {
+      "Title": "Каркас",
+      "Description": "массив, фанера, ДВП, ДСП, мебельный щит"
+    },
+    { "Title": "Ткань", "Description": "велюр" },
+    { "Title": "Страна", "Description": "Россия" }
+  ]
+}

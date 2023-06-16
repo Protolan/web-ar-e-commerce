@@ -4,6 +4,32 @@
   transition: left 0.5s ease;
 }
 
+.auth-switcher {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  border-radius: 17px;
+  height: 35px;
+  background-color: var(--elback-color);
+  padding: 0px 4px;
+}
+
+.auth-switcher-text-container {
+  height: 90%;
+  border-radius: 16px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-switcher-text-container.outline {
+  background-color: var(--back-color);
+}
+
 .auth-container {
   margin: 25px auto 25px;
   font-family: "Montserrat";

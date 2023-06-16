@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/global.css" />
     <link rel="stylesheet" href="styles/mainPage.css" />
-    <link rel="stylesheet" href="styles/slider.css" />
     <title>ARDIV</title>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="scripts/rendering/navPanels.js"></script>
+    <script type="module" src="scripts/rendering/mainPage.js"></script>
   </head>
   <body>
-    <header id="header"></header>
     <main>
       <div class="promo-container">
         <div class="promo-text-container">
@@ -21,7 +20,6 @@
       </div>
 
       <div class="content-container">
-        <div id="slider"></div>
         <div>
           <h2>Уникальность и качество</h2>
           <p>
@@ -30,6 +28,7 @@
             эксклюзивные модели, которые станут настоящей гордостью вашего дома
           </p>
         </div>
+        <div id="goods-carousel1"></div>
         <div>
           <h2>AR технологии</h2>
           <p>
@@ -39,6 +38,7 @@
             пространство. Это удобно и захватывающе!
           </p>
         </div>
+        <div id="goods-carousel2"></div>
         <div>
           <h2>Дизайнер у вас дома</h2>
           <p>
@@ -47,8 +47,8 @@
             уникальный интерьер, который отражает вашу индивидуальность.
           </p>
         </div>
+        <div id="goods-carousel3"></div>
       </div>
     </main>
-    <footer id="footer"></footer>
   </body>
 </html>

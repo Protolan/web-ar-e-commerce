@@ -1,6 +1,6 @@
 "use strict";
 
-import { Component, createRef } from "https://esm.sh/preact";
+import { Component } from "https://esm.sh/preact";
 import html from "../scripts/html.js";
 
 export class RangeSlider extends Component {

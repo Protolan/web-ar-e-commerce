@@ -80,6 +80,14 @@ export class AuthScreen extends Component {
           />
         </div>
         <div class="auth-container">
+          <div class="auth-switcher">
+            <div class="auth-switcher-text-container outline">
+              <div>Войти</div>
+            </div>
+            <div class="auth-switcher-text-container">
+              <div>Регистрация</div>
+            </div>
+          </div>
           <div class="input-container">
             <div class="input-title">Телефон</div>
             <input

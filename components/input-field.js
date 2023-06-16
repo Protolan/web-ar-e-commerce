@@ -11,14 +11,6 @@ export class InputField extends Component {
     };
   }
 
-  componentDidMount() {
-    window.addEventListener("profileClicked", this.show);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("profileClicked", this.show);
-  }
-
   show = () => {
     this.setState({ isHidden: false });
   };

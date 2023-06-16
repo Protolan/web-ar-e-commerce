@@ -52,3 +52,21 @@ p {
 .hidden {
   display: none;
 }
+
+.sale-cost {
+  color: var(--contrast-color);
+}
+
+.previous-cost {
+  color: var(--info-color);
+  text-decoration: line-through;
+}
+
+.icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}

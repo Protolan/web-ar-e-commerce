@@ -1,0 +1,24 @@
+{
+  "name": "Диван Амрано Бардовый",
+  "titleName": "Диван Амрано",
+  "cost": 35980,
+  "sale": null,
+  "images": ["./assets/images/amrano.png"],
+  "color": {
+    "group": "Красный",
+    "hex": "D4C7B7"
+  },
+  "otherColors": [],
+  "categories": ["Диваны"],
+  "feature": [
+    { "Title": "Длина", "Description": "164см" },
+    { "Title": "Ширина", "Description": "105cм" },
+    { "Title": "Высота", "Description": "85см" },
+    {
+      "Title": "Каркас",
+      "Description": "массив, фанера, ДВП, ДСП, мебельный щит"
+    },
+    { "Title": "Ткань", "Description": "велюр" },
+    { "Title": "Страна", "Description": "Россия" }
+  ]
+}

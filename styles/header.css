@@ -36,3 +36,15 @@
   align-items: center;
   gap: 5px;
 }
+
+.header-counter {
+  position: absolute;
+  font-family: "Montserrat";
+  text-align: center;
+  color: var(--back-color);
+  font-size: 10px;
+  font-weight: 400;
+  top: 51.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -10,7 +10,7 @@
   gap: 45px;
 }
 
-.content-container > div:first-child {
+.content-container > div {
   width: 100%;
 }
 

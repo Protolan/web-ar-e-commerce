@@ -16,12 +16,19 @@
   align-items: center;
   justify-content: center;
 }
-.carousel-item.active {
-  opacity: 1;
-}
+
 .carousel-item.animate {
   animation: fade-in 0.3s;
 }
+
+.carousel-item:not(.active) {
+  pointer-events: none;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -29,4 +36,19 @@
   to {
     opacity: 1;
   }
+}
+
+.carousel-pointer-container {
+  margin-top: 20px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--info-color);
+  overflow: hidden;
+}
+
+.carousel-pointer {
+  height: 1px;
+  width: 100%;
+  background-color: var(--action-color);
+  transition: transform 0.3s ease-in-out;
 }

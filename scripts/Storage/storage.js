@@ -1,4 +1,8 @@
 class Storage {
+  constructor() {
+    console.log("initStorage");
+  }
+
   save(key, value) {
     const serializedValue = JSON.stringify(value);
     localStorage.setItem(key, serializedValue);
@@ -21,4 +25,6 @@ class Storage {
   }
 }
 
-export default new Storage();
+const storage = new Storage(); // Создаем единственный экземпляр Storage
+
+export default storage;

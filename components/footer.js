@@ -17,18 +17,18 @@ export class Footer extends Component {
   render() {
     return html`
       <div class="footer">
-        <img
-          src="assets/Location.svg"
-          alt="LocationButton"
-          onClick=${this.locationClick}
-        />
-        <img
-          src="assets/Profile.svg"
-          alt="Личный кабинет"
-          onClick=${this.profileClick}
-        />
-        <img src="assets/SocialMedia.svg" alt="Социальные сети" />
-        <img src="assets/Phone.svg" alt="Звонок" />
+        <div class="icon-container" onClick=${this.locationClick}>
+          <img src="assets/Location.svg" alt="LocationButton" />
+        </div>
+        <div class="icon-container" onClick=${this.profileClick}>
+          <img src="assets/Profile.svg" alt="Личный кабинет" />
+        </div>
+        <div class="icon-container">
+          <img src="assets/SocialMedia.svg" alt="Социальные сети" />
+        </div>
+        <div class="icon-container">
+          <img src="assets/Phone.svg" alt="Звонок" />
+        </div>
       </div>
       <div class="footer-container"></div>
     `;
