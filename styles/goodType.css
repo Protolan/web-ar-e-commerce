@@ -1,3 +1,24 @@
+.good-type {
+  top: 0;
+  left: -100%;
+  transition: left 0.5s ease;
+}
+
+.good-type.open {
+  left: 0;
+}
+
+.good-type-container {
+  margin: 25px auto 25px;
+  font-family: "Montserrat";
+  width: calc(100% - 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 30px;
+}
+
 .good-type-categories {
   display: flex;
   flex-direction: row;
@@ -18,4 +39,42 @@
   color: var(--primary-color);
   border-bottom: 1px solid var(--primary-color);
   padding-bottom: 3px;
+}
+
+.good-type-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 25px;
+}
+
+.good-type-item {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.good-type-str {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  gap: 15px;
+  width: 100%;
+  height: 35px;
+}
+
+.good-type-arrow {
+  position: absolute;
+  right: 0;
+  top: 35%;
 }

@@ -36,6 +36,10 @@ export class Header extends Component {
     window.dispatchEvent(new Event("favouriteClick"));
   };
 
+  categoryClick = () => {
+    window.dispatchEvent(new Event("categoryClicked"));
+  };
+
   handleScroll = () => {
     const currentScrollPos = window.scrollY;
     const scollMinDistant = 20;
@@ -65,7 +69,9 @@ export class Header extends Component {
     return html`
       <div class="${classes}">
         <div class="header-left">
-          <div class="icon-container"><img src="assets/Menu.svg" /></div>
+          <div onClick=${this.categoryClick} class="icon-container">
+            <img src="assets/Menu.svg" />
+          </div>
           <div class="icon-container"><img src="assets/Search.svg" /></div>
         </div>
         <img

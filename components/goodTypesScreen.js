@@ -6,50 +6,83 @@ export class GoodTypeScreen extends Component {
     super(props);
     this.state = {
       isHidden: true,
+      isGoods: true,
     };
-    this.cities = this.createLocationHTML(props.cities);
   }
 
   componentDidMount() {
-    window.addEventListener("locationClicked", this.show);
+    window.addEventListener("categoryClicked", this.show);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("locationClicked", this.show);
+    window.removeEventListener("categoryClicked", this.show);
   }
 
   show = () => {
     this.setState({ isHidden: false });
   };
 
-  locationPicked = (city) => {
+  exit = () => {
     this.setState({ isHidden: true });
-    window.dispatchEvent(new CustomEvent("locationPicked", { detail: city }));
+    window.dispatchEvent(new Event("categoryExit"));
   };
 
-  locationExit = () => {
-    this.setState({ isHidden: true });
-    window.dispatchEvent(new Event("locationExit"));
-  };
-
-  createLocationHTML = (cityArray) => {
-    return cityArray.map(
+  getCurrentCategories = () => {
+    console.log(this.props.categories.goods);
+    const categories = this.state.isGoods
+      ? this.props.categories.goods
+      : this.props.categories.rooms;
+    return categories.map(
       (value) =>
-        html`<div class="city-pick" onClick=${this.locationPicked}>
-          ${value}
+        html`<div class="good-type-item">
+          <div class="good-type-item">
+            <div class="good-type-str">
+              <img class="icon-container " src=${value.image} />
+              <div>${value.name}</div>
+              <img class="good-type-arrow" src="assets/Arrow.svg" />
+            </div>
+          </div>
+          <div class="divider"></div>
         </div>`
     );
   };
 
+  setGoods = () => {
+    this.setState({ isGoods: true });
+  };
+  setRooms = () => {
+    this.setState({ isGoods: false });
+  };
+
   render() {
-    const classes = `location overlay ${this.state.isHidden ? "" : "open"}`;
+    const classes = `good-type overlay ${this.state.isHidden ? "" : "open"}`;
     return html`
       <div class=${classes}>
         <div class="overlay-header">
-          <h1>Укажите свой город</h1>
-          <img src="assets/ExitButton.svg" onClick=${this.locationExit} />
+          <h1>Категории</h1>
+          <img src="assets/ExitButton.svg" onClick=${this.exit} />
         </div>
-        <div class="location-container">${this.cities}</div>
+        <div class="good-type-container">
+          <div class="good-type-categories">
+            <div
+              onClick=${this.setGoods}
+              class="good-type-category-button ${this.state.isGoods
+                ? "current"
+                : ""}"
+            >
+              Товары
+            </div>
+            <div
+              onClick=${this.setRooms}
+              class="good-type-category-button ${this.state.isGoods
+                ? ""
+                : "current"}"
+            >
+              Комнаты
+            </div>
+          </div>
+          <div class="good-type-list">${this.getCurrentCategories()}</div>
+        </div>
       </div>
     `;
   }

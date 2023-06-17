@@ -3,6 +3,7 @@ class Database {
     this.initialization = Promise.all([
       this.createGoods(),
       this.createCities(),
+      this.createCategories(),
     ]);
   }
 
@@ -19,6 +20,11 @@ class Database {
   async createCities() {
     let cities = await this.createBase([`database/cities/cities.json`]);
     this.cities = cities.cities.cities;
+  }
+
+  async createCategories() {
+    let categories = await this.createBase([`database/categories.json`]);
+    this.categories = categories.categories;
   }
 
   async createBase(filePaths) {

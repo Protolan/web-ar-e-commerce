@@ -1,0 +1,16 @@
+{
+  "goods": [
+    { "name": "Диваны", "image": "./assets/Divan.svg" },
+    { "name": "Кровати", "image": "./assets/Bed.svg" },
+    { "name": "Шкафы", "image": "./assets/Wardrobe.svg" },
+    { "name": "Столы", "image": "./assets/table.svg" },
+    { "name": "Комоды", "image": "./assets/cabinet.svg" }
+  ],
+  "rooms": [
+    { "name": "Гостиная", "image": "./assets/livingRoom.svg" },
+    { "name": "Спальня", "image": "./assets/Bed.svg" },
+    { "name": "Кухня", "image": "./assets/kitchen.svg" },
+    { "name": "Десткая", "image": "./assets/ChildrenRoom.svg" },
+    { "name": "Сад и дача", "image": "./assets/Garden.svg" }
+  ]
+}
