@@ -1,0 +1,50 @@
+.favourite {
+  top: 0;
+  left: -100%;
+  transition: left 0.5s ease;
+}
+
+.favourite.open {
+  left: 0;
+}
+
+.favourite-container {
+  width: calc(100% - 30px);
+  margin: 30px auto 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.favourite-empty {
+  font-family: "Montserrat";
+  font-size: 18px;
+  text-align: center;
+  color: var(--info-color);
+}
+
+.ar-button.fav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+.ar-button-container {
+  width: 100%;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.ar-button.fav.display {
+  opacity: 1;
+}
+.ar-button.fav.hidden {
+  opacity: 0;
+}

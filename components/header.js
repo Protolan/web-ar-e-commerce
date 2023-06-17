@@ -23,6 +23,19 @@ export class Header extends Component {
     window.removeEventListener("scroll", this.handleScroll);
   }
 
+  redirectToPage = (targetPath) => {
+    console.log("redirect");
+    const currentPath = window.location.pathname;
+
+    if (currentPath !== targetPath) {
+      window.location.href = targetPath;
+    }
+  };
+
+  favouriteClick = () => {
+    window.dispatchEvent(new Event("favouriteClick"));
+  };
+
   handleScroll = () => {
     const currentScrollPos = window.scrollY;
     const scollMinDistant = 20;
@@ -55,9 +68,16 @@ export class Header extends Component {
           <div class="icon-container"><img src="assets/Menu.svg" /></div>
           <div class="icon-container"><img src="assets/Search.svg" /></div>
         </div>
-        <img src="assets/ARDIV.svg" />
+        <img
+          src="assets/ARDIV.svg"
+          onClick=${() => this.redirectToPage("/index.html")}
+        />
         <div class="header-right">
-          <div class="icon-container" ref=${this.favouriteButton}>
+          <div
+            class="icon-container"
+            ref=${this.favouriteButton}
+            onClick=${this.favouriteClick}
+          >
             ${number}
             <img
               src=${anyFavourite

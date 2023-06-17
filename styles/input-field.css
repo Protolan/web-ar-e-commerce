@@ -11,10 +11,6 @@
   box-sizing: border-box;
 }
 
-.input-field[readonly] {
-  background-color: var(--elback-color);
-}
-
 .input-field:focus {
   border: 1px solid var(--primary-color);
 }
@@ -25,6 +21,11 @@
 
 .input-field:not(:placeholder-shown) {
   color: var(--primary-color);
+}
+
+.input-field[readonly] {
+  background-color: var(--elback-color);
+  color: var(--info-color);
 }
 
 .input-clear {
@@ -39,7 +40,7 @@
   background-repeat: no-repeat;
 }
 
-.input-clear.error {
+.input-clear.invalid {
   background-image: url("../assets/ClearError.svg");
 }
 
@@ -56,4 +57,29 @@
   font-size: 15px;
   font-weight: 400;
   text-align: left;
+}
+
+.digit-input-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.digit-input {
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 25px;
+  font-weight: 400;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid var(--info-color);
+  box-sizing: border-box;
+}
+
+.digit-input:focus {
+  border: 1px solid var(--primary-color);
 }

@@ -1,0 +1,21 @@
+.good-type-categories {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.good-type-category-button {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--info-color);
+}
+
+.good-type-category-button.current {
+  margin-top: 2px;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+  padding-bottom: 3px;
+}

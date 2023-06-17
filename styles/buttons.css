@@ -6,6 +6,7 @@
   font-size: 15px;
   font-weight: 500;
   color: var(--back-color);
+  border-radius: 4px;
   background-color: var(--action-color);
 }
 
@@ -13,4 +14,15 @@
   cursor: not-allowed;
   background-color: var(--elback-color);
   color: var(--info-color);
+}
+
+.ar-button {
+  height: 70px;
+  line-height: 70px;
+  background-color: var(--action-color);
+  text-align: center;
+  color: var(--back-color);
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 4px;
 }

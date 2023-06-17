@@ -6,6 +6,7 @@ import { Header } from "../../components/header.js";
 import { Footer } from "../../components/footer.js";
 import { LocationScreen } from "../../components/locationScreen.js";
 import { AuthScreen } from "../../components/authScreen.js";
+import { FavouriteScreen } from "../../components/favouriteScreen.js";
 import database from "../database.js";
 
 function addStylesheet(cssPath) {
@@ -29,11 +30,13 @@ async function start() {
   addStylesheet("styles/footer.css");
   addStylesheet("styles/location.css");
   addStylesheet("styles/auth.css");
+  addStylesheet("styles/favourite.css");
   await database.initialization;
   document.body.append(
     createRenderComponent(html`<${LocationScreen} cities=${database.cities} />`)
   );
   document.body.append(createRenderComponent(html`<${AuthScreen} />`));
+  document.body.append(createRenderComponent(html`<${FavouriteScreen} />`));
   document.body.prepend(createRenderComponent(html`<${Header} />`));
   document.body.append(createRenderComponent(html`<${Footer} />`));
 }

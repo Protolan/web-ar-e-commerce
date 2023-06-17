@@ -1,8 +1,9 @@
-import profile from "./storage.js";
+import storage from "./storage.js";
 
 class ProfileData {
   constructor() {
     this.init();
+    console.log(this.data);
   }
 
   init() {
@@ -19,24 +20,27 @@ class ProfileData {
   }
 
   addProfile(profileData) {
-    const profile = findProfileByPhone(profileData.phone);
+    const profile = this.findProfileByPhone(profileData.phone);
     if (profile != null) return;
     let newProfile = {
       phone: profileData.phone,
       name: profileData.name,
+      surname: profileData.surname,
       mail: profileData.mail,
       orders: [],
     };
     this.data.profiles.push(newProfile);
     storage.save("profile", this.data);
+    console.log(this.data);
   }
 
   logIn(phone) {
-    const profile = findProfileByPhone(phone);
+    const profile = this.findProfileByPhone(phone);
     if (profile != null) {
       this.data.current = profile;
       storage.save("profile", this.data);
       window.dispatchEvent(new Event("logedIn"));
+      console.log(this.data);
     }
   }
 
@@ -45,6 +49,7 @@ class ProfileData {
       this.data.current = null;
       storage.save("profile", this.data);
       window.dispatchEvent(new Event("logedOut"));
+      console.log(this.data);
     }
   }
 
@@ -63,17 +68,16 @@ class ProfileData {
   }
 
   findProfileByPhone(phone) {
-    return data.profiles.find((profile) => profile.phone === phone);
+    console.log(phone);
+    if (this.data.profiles.length === 0) {
+      return null;
+    }
+    return this.data.profiles.find((profile) => profile.phone === phone);
   }
 
   findOrderById(id) {
     if (this.data.current == null) return null;
     return this.data.current.orders.find((order) => order.id === id);
-  }
-
-  invokeEvent() {
-    console.log(this.data);
-    window.dispatchEvent(new Event("profileChanged"));
   }
 }
 

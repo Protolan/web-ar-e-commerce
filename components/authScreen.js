@@ -1,14 +1,15 @@
-import { Component } from "https://esm.sh/preact";
+import { Component, createRef } from "https://esm.sh/preact";
 import html from "../scripts/html.js";
+import { LogScreen } from "./logScreen.js";
+import { RegScreen } from "./regScreen.js";
 
 export class AuthScreen extends Component {
   constructor(props) {
     super(props);
+    this.logScreen = createRef();
     this.state = {
-      dataEntered: true,
-      clearButton: false,
       isHidden: true,
-      phoneNumber: "",
+      enter: true,
     };
   }
 
@@ -20,8 +21,19 @@ export class AuthScreen extends Component {
     window.removeEventListener("profileClicked", this.show);
   }
 
+  switchLog = () => {
+    if (this.state.enter) return;
+    this.setState({ enter: true });
+  };
+
+  switchReg = () => {
+    if (!this.state.enter) return;
+    this.setState({ enter: false });
+  };
+
   show = () => {
-    this.setState({ isHidden: false });
+    this.logScreen.current.reset();
+    this.setState({ isHidden: false, enter: true });
   };
 
   exit = () => {
@@ -29,46 +41,9 @@ export class AuthScreen extends Component {
     window.dispatchEvent(new Event("authExit"));
   };
 
-  handlePhoneNumberChange = (event) => {
-    let phoneNumber = event.target.value;
-    if (this.state.phoneNumber === "") {
-      phoneNumber = "+7";
-
-      this.setState({ phoneNumber, clearButton: true });
-      return;
-    } else {
-      if (phoneNumber === "+") {
-        phoneNumber = "";
-        this.setState({ phoneNumber, clearButton: false });
-        return;
-      }
-    }
-
-    // Проверяем, что введенный номер соответствует формату "+7xxxxxxxxxx"
-    const regex = /^(\+7)\d*$/;
-    if (!regex.test(phoneNumber)) {
-      // Если номер не соответствует формату, удаляем последний введенный символ
-      phoneNumber = phoneNumber.slice(0, -1);
-    }
-
-    // Обновляем состояние с новым номером
-    this.setState({ phoneNumber });
-  };
-
-  handleLettersOnly = (event) => {
-    const inputText = event.target.value;
-    const lettersOnly = inputText.replace(/[^a-zA-Z]/g, "");
-  };
-
-  clearInput = () => {
-    this.setState({ phoneNumber: "", clearButton: false });
-  };
-
   render() {
     const classes = `auth overlay ${this.state.isHidden ? "" : "open"}`;
-    const cleatButtonClasses = `input-clear ${
-      this.state.clearButton ? "" : "hidden"
-    }`;
+    const isEnter = this.state.enter;
     return html`
       <div class=${classes}>
         <div class="overlay-header">
@@ -81,26 +56,28 @@ export class AuthScreen extends Component {
         </div>
         <div class="auth-container">
           <div class="auth-switcher">
-            <div class="auth-switcher-text-container outline">
+            <div
+              onClick=${this.switchLog}
+              class="auth-switcher-text-container ${isEnter ? "outline" : ""}"
+            >
               <div>Войти</div>
             </div>
-            <div class="auth-switcher-text-container">
+            <div
+              onClick=${this.switchReg}
+              class="auth-switcher-text-container ${isEnter ? "" : "outline"}"
+            >
               <div>Регистрация</div>
             </div>
           </div>
-          <div class="input-container">
-            <div class="input-title">Телефон</div>
-            <input
-              type="text"
-              maxlength="12"
-              class="input-field"
-              value=${this.state.phoneNumber}
-              onInput=${this.handlePhoneNumberChange}
-              placeholder="+7 (___) ___ __ __"
-            />
-            <span class=${cleatButtonClasses} onClick=${this.clearInput}></span>
-          </div>
-          <div class="action-button">Получить код в SMS</div>
+          ${isEnter
+            ? html`<${LogScreen}
+                ref=${this.logScreen}
+                onCompleted=${this.exit}
+              />`
+            : html`<${RegScreen}
+                ref=${this.logScreen}
+                onCompleted=${this.exit}
+              />`}
         </div>
       </div>
     `;
